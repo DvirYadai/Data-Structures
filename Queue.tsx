@@ -1,7 +1,7 @@
-class Queue {
-  private array: any[] = [];
+class Queue<T> {
+  private array: T[] = [];
 
-  constructor(firstElement?: any) {
+  constructor(firstElement?: T) {
     if (firstElement) {
       this.array.push(firstElement);
     }
@@ -15,21 +15,21 @@ class Queue {
     return this.size() === 0;
   }
 
-  peek() {
+  peek(): T {
     if (this.isEmpty()) {
       throw new Error("Queue empty");
     }
     return this.array[0];
   }
 
-  poll() {
+  poll(): T {
     if (this.isEmpty()) {
       throw new Error("Queue empty");
     }
     return this.array.shift();
   }
 
-  offer(elem: any) {
+  offer(elem: T) {
     this.array.push(elem);
   }
 }
